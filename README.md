@@ -10,7 +10,7 @@
   [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 
-  [Live Demo](https://ratio-b2b.vercel.app) &bull; [Report Bug](https://github.com/kamilowczarek/ratio/issues/new?template=bug_report.md) &bull; [Request Feature](https://github.com/kamilowczarek/ratio/issues/new?template=feature_request.md)
+  [Live Demo](https://ratio.whoisarjen.com) &bull; [Report Bug](https://github.com/whoisarjen/ratio/issues/new?template=bug_report.md) &bull; [Request Feature](https://github.com/whoisarjen/ratio/issues/new?template=feature_request.md)
 </div>
 
 ---
@@ -54,7 +54,7 @@
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/kamilowczarek/ratio.git
+   git clone https://github.com/whoisarjen/ratio.git
    cd ratio
    ```
 
@@ -136,6 +136,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 <div align="center">
   <p>Built with care for the Polish B2B community.</p>
   <p>
-    <a href="https://github.com/kamilowczarek/ratio/stargazers">Star this repo</a> if you find it useful!
+    <a href="https://github.com/whoisarjen/ratio/stargazers">Star this repo</a> if you find it useful!
   </p>
 </div>

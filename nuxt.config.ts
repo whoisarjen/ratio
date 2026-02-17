@@ -21,6 +21,7 @@ export default defineNuxtConfig({
       title: 'Ratio - Polish B2B Tax Calculator',
       meta: [
         { name: 'description', content: 'Calculate your net income as a B2B contractor in Poland. Compare tax forms, ZUS contributions, and find the best option including IP BOX.' },
+        { name: 'color-scheme', content: 'dark' },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -30,6 +31,8 @@ export default defineNuxtConfig({
       ],
       htmlAttrs: {
         lang: 'pl',
+        class: 'dark',
+        style: 'background-color:#1a1c27',
       },
     },
   },

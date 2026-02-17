@@ -10,7 +10,7 @@ By participating in this project, you agree to treat all contributors with respe
 
 ### Reporting Bugs
 
-If you find a bug, please [open an issue](https://github.com/kamilowczarek/ratio/issues/new?template=bug_report.md) with:
+If you find a bug, please [open an issue](https://github.com/whoisarjen/ratio/issues/new?template=bug_report.md) with:
 
 - A clear description of the problem
 - Steps to reproduce the issue
@@ -19,7 +19,7 @@ If you find a bug, please [open an issue](https://github.com/kamilowczarek/ratio
 
 ### Suggesting Features
 
-Feature requests are welcome! Please [open an issue](https://github.com/kamilowczarek/ratio/issues/new?template=feature_request.md) describing:
+Feature requests are welcome! Please [open an issue](https://github.com/whoisarjen/ratio/issues/new?template=feature_request.md) describing:
 
 - The problem your feature would solve
 - Your proposed solution
@@ -59,7 +59,7 @@ Feature requests are welcome! Please [open an issue](https://github.com/kamilowc
    git commit -m "Add: description of your change"
    ```
 
-7. **Push** to your fork and [open a Pull Request](https://github.com/kamilowczarek/ratio/compare).
+7. **Push** to your fork and [open a Pull Request](https://github.com/whoisarjen/ratio/compare).
 
 ## Development Setup
 
@@ -71,7 +71,7 @@ Feature requests are welcome! Please [open an issue](https://github.com/kamilowc
 ### Running Locally
 
 ```bash
-git clone https://github.com/kamilowczarek/ratio.git
+git clone https://github.com/whoisarjen/ratio.git
 cd ratio
 npm install
 npm run dev
@@ -136,6 +136,6 @@ To add support for a new tax year:
 
 ## Questions?
 
-If you have questions about contributing, feel free to [open a discussion](https://github.com/kamilowczarek/ratio/issues) on the repository.
+If you have questions about contributing, feel free to [open a discussion](https://github.com/whoisarjen/ratio/issues) on the repository.
 
 Thank you for helping make Ratio better!

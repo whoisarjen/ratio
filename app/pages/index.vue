@@ -159,7 +159,7 @@ useHead({
   <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 pb-24 lg:pb-12">
     <!-- Hero -->
     <div class="text-center mb-10">
-      <h1 class="text-3xl sm:text-4xl font-bold text-surface-900 mb-3">
+      <h1 class="text-3xl sm:text-4xl font-bold text-surface-100 mb-3">
         Kalkulator B2B
       </h1>
       <p class="text-surface-400 text-lg max-w-xl mx-auto">
@@ -173,7 +173,7 @@ useHead({
       <div class="lg:col-span-5 lg:order-1 space-y-5">
         <!-- Income Input Card -->
         <div class="card p-6">
-          <h2 class="text-xs font-semibold text-surface-900 uppercase tracking-wider mb-4">
+          <h2 class="text-xs font-semibold text-surface-400 uppercase tracking-wider mb-4">
             Przychod
           </h2>
 
@@ -199,7 +199,7 @@ useHead({
               min="0"
               step="100"
             >
-            <span class="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-medium text-surface-400">
+            <span class="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-medium text-surface-500">
               {{ rateTypes.find(r => r.value === rateType)?.suffix }}
             </span>
           </div>
@@ -217,7 +217,7 @@ useHead({
 
         <!-- Tax & ZUS Settings Card -->
         <div class="card p-6">
-          <h2 class="text-xs font-semibold text-surface-900 uppercase tracking-wider mb-4">
+          <h2 class="text-xs font-semibold text-surface-400 uppercase tracking-wider mb-4">
             Podatki i ZUS
           </h2>
 
@@ -232,15 +232,15 @@ useHead({
                   :class="[
                     'w-full flex items-center justify-between p-3 rounded-xl border transition-all duration-150 text-left',
                     taxationType === tt.value
-                      ? 'bg-brand-50 border-brand-300 ring-1 ring-brand-200'
-                      : 'border-surface-200 hover:border-surface-300 bg-white',
+                      ? 'bg-brand-50 dark:bg-brand-900/30 border-brand-300 dark:border-brand-500/50 ring-1 ring-brand-200 dark:ring-brand-500/20'
+                      : 'border-surface-700 hover:border-surface-600 bg-surface-800',
                   ]"
                   @click="taxationType = tt.value"
                 >
                   <span
                     :class="[
                       'text-sm font-semibold',
-                      taxationType === tt.value ? 'text-brand-700' : 'text-surface-700',
+                      taxationType === tt.value ? 'text-brand-700 dark:text-brand-300' : 'text-surface-300',
                     ]"
                   >
                     {{ tt.label }}
@@ -249,8 +249,8 @@ useHead({
                     :class="[
                       'text-xs font-medium px-2 py-0.5 rounded-md',
                       taxationType === tt.value
-                        ? 'bg-brand-100 text-brand-600'
-                        : 'bg-surface-100 text-surface-500',
+                        ? 'bg-brand-100 dark:bg-brand-800/50 text-brand-600 dark:text-brand-300'
+                        : 'bg-surface-700 text-surface-400',
                     ]"
                   >
                     {{ tt.description }}
@@ -261,15 +261,15 @@ useHead({
               <!-- IP BOX - Separate, visually distinct -->
               <div class="mt-3 p-3 rounded-xl border-2 border-dashed transition-all duration-150"
                 :class="taxationType === 'ip_box'
-                  ? 'border-brand-400 bg-brand-50'
-                  : 'border-surface-200 bg-surface-50/50 hover:border-surface-300'"
+                  ? 'border-brand-300 dark:border-brand-500/50 bg-brand-50 dark:bg-brand-900/20'
+                  : 'border-surface-600 bg-surface-800/50 hover:border-surface-500'"
               >
                 <button
                   :class="[
                     'w-full flex items-center justify-between p-3 rounded-lg transition-all duration-150',
                     taxationType === 'ip_box'
                       ? 'bg-brand-600 text-white'
-                      : 'bg-white hover:bg-brand-50 border border-surface-200',
+                      : 'bg-surface-700 hover:bg-surface-600 border border-surface-600',
                   ]"
                   @click="taxationType = 'ip_box'"
                 >
@@ -280,7 +280,7 @@ useHead({
                         'text-xs px-2 py-0.5 rounded-full font-medium',
                         taxationType === 'ip_box'
                           ? 'bg-white/20 text-white'
-                          : 'bg-amber-100 text-amber-700',
+                          : 'bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-400',
                       ]"
                     >
                       5% PIT
@@ -290,7 +290,7 @@ useHead({
                     Dla programistow
                   </span>
                 </button>
-                <p class="mt-2 text-xs text-surface-400 px-1">
+                <p class="mt-2 text-xs text-surface-500 px-1">
                   Preferencyjne opodatkowanie dochodow z kwalifikowanej wlasnosci intelektualnej.
                 </p>
               </div>
@@ -318,16 +318,16 @@ useHead({
                   min="0"
                   max="100"
                   step="5"
-                  class="flex-1 h-2 bg-surface-200 rounded-full appearance-none cursor-pointer
+                  class="flex-1 h-2 bg-surface-600 rounded-full appearance-none cursor-pointer
                          [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5
                          [&::-webkit-slider-thumb]:bg-brand-600 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:shadow-md
                          [&::-webkit-slider-thumb]:cursor-pointer"
                 >
-                <span class="text-sm font-bold text-brand-600 w-12 text-right tabular-nums">
+                <span class="text-sm font-bold text-brand-600 dark:text-brand-400 w-12 text-right tabular-nums">
                   {{ ipBoxPercentage }}%
                 </span>
               </div>
-              <p class="text-xs text-surface-400">
+              <p class="text-xs text-surface-500">
                 Procent dochodu kwalifikujacego sie do stawki 5%.
                 Pozostala czesc opodatkowana liniowo 19%.
               </p>
@@ -348,7 +348,7 @@ useHead({
               v-if="zusType !== 'health_only' && zusType !== 'no_zus'"
               class="flex items-center justify-between"
             >
-              <span class="text-sm font-medium text-surface-600">Chorobowe</span>
+              <span class="text-sm font-medium text-surface-400">Chorobowe</span>
               <button
                 :class="['toggle-track', sickInsurance && 'active']"
                 @click="sickInsurance = !sickInsurance"
@@ -369,7 +369,7 @@ useHead({
                   min="0"
                   step="100"
                 >
-                <span class="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-surface-400">
+                <span class="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-surface-500">
                   PLN/m
                 </span>
               </div>
@@ -378,7 +378,7 @@ useHead({
 
           <!-- Advanced options -->
           <button
-            class="mt-4 text-sm font-medium text-brand-600 hover:text-brand-700 flex items-center gap-1 transition-colors"
+            class="mt-4 text-sm font-medium text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 flex items-center gap-1 transition-colors"
             @click="showAdvanced = !showAdvanced"
           >
             <svg
@@ -393,7 +393,7 @@ useHead({
             {{ showAdvanced ? 'Mniej opcji' : 'Wiecej opcji' }}
           </button>
 
-          <div v-if="showAdvanced" class="mt-4 space-y-4 pt-4 border-t border-surface-100">
+          <div v-if="showAdvanced" class="mt-4 space-y-4 pt-4 border-t border-surface-700">
             <!-- Paid vacation -->
             <div>
               <label class="label">Platne dni wolne</label>
@@ -416,7 +416,7 @@ useHead({
                 min="1"
                 max="366"
               >
-              <p class="mt-1 text-xs text-surface-400">
+              <p class="mt-1 text-xs text-surface-500">
                 Dni roboczych w {{ taxYear }}: {{ workingDaysPerYear }}
               </p>
             </div>
@@ -424,8 +424,8 @@ useHead({
             <!-- VAT toggle -->
             <div class="flex items-center justify-between">
               <div>
-                <span class="text-sm font-medium text-surface-600">VAT (23%)</span>
-                <p class="text-xs text-surface-400">Dolicz VAT do faktury</p>
+                <span class="text-sm font-medium text-surface-400">VAT (23%)</span>
+                <p class="text-xs text-surface-500">Dolicz VAT do faktury</p>
               </div>
               <button
                 :class="['toggle-track', includeVat && 'active']"
@@ -442,11 +442,11 @@ useHead({
       <div class="lg:col-span-7 lg:order-2">
         <div class="lg:sticky lg:top-20 space-y-5">
           <!-- Net Income Hero -->
-          <div class="card p-6 sm:p-8 bg-gradient-to-br from-brand-600 to-brand-700 border-0 text-white">
-            <div class="flex items-start justify-between mb-6">
+          <div class="card p-6 sm:p-8 bg-gradient-to-br from-brand-600 to-brand-700 border-0 text-white relative overflow-hidden">
+            <div class="relative z-10 flex items-start justify-between mb-8">
               <div>
                 <p class="text-brand-200 text-sm font-medium mb-1">Netto miesieczne</p>
-                <p class="text-5xl sm:text-6xl font-bold tabular-nums tracking-tight">
+                <p class="text-5xl sm:text-6xl font-bold tabular-nums tracking-tighter leading-none">
                   {{ formatPLN(result.netMonthly) }}
                 </p>
                 <p class="text-brand-200 text-sm mt-1">PLN / miesiac</p>
@@ -460,7 +460,7 @@ useHead({
             </div>
 
             <!-- Quick stats -->
-            <div class="grid grid-cols-3 gap-3">
+            <div class="relative z-10 grid grid-cols-3 gap-3">
               <div class="bg-white/10 rounded-xl p-3">
                 <p class="text-xs text-brand-200 mb-0.5">Godzinowa</p>
                 <p class="text-lg font-bold tabular-nums">{{ formatPLN(result.netHourly) }}</p>
@@ -479,26 +479,26 @@ useHead({
           <!-- Combined Breakdown Card -->
           <div class="card p-6">
             <!-- Monthly Summary - always visible -->
-            <h2 class="text-xs font-semibold text-surface-900 uppercase tracking-wider mb-4">
+            <h2 class="text-xs font-semibold text-surface-400 uppercase tracking-wider mb-4">
               Podsumowanie miesieczne
             </h2>
 
             <div class="space-y-1">
               <div class="flex justify-between items-center py-2">
-                <span class="text-sm text-surface-600">Przychod brutto</span>
-                <span class="text-sm font-semibold text-surface-900 tabular-nums">
+                <span class="text-sm text-surface-400">Przychod brutto</span>
+                <span class="text-sm font-semibold text-surface-100 tabular-nums">
                   {{ formatPLN(result.grossMonthly) }} PLN
                 </span>
               </div>
 
-              <div class="h-px bg-surface-100" />
+              <div class="h-px bg-surface-700" />
 
               <div class="flex justify-between items-center py-2">
                 <div class="flex items-center gap-2">
                   <span class="w-2 h-2 rounded-full bg-amber-400" />
-                  <span class="text-sm text-surface-600">ZUS spoleczne</span>
+                  <span class="text-sm text-surface-400">ZUS spoleczne</span>
                 </div>
-                <span class="text-sm font-semibold text-rose-600 tabular-nums">
+                <span class="text-sm font-semibold text-rose-600 dark:text-rose-400 tabular-nums">
                   -{{ formatPLN(result.zusMonthly) }} PLN
                 </span>
               </div>
@@ -506,9 +506,9 @@ useHead({
               <div class="flex justify-between items-center py-2">
                 <div class="flex items-center gap-2">
                   <span class="w-2 h-2 rounded-full bg-rose-400" />
-                  <span class="text-sm text-surface-600">Skladka zdrowotna</span>
+                  <span class="text-sm text-surface-400">Skladka zdrowotna</span>
                 </div>
-                <span class="text-sm font-semibold text-rose-600 tabular-nums">
+                <span class="text-sm font-semibold text-rose-600 dark:text-rose-400 tabular-nums">
                   -{{ formatPLN(result.healthInsuranceMonthly) }} PLN
                 </span>
               </div>
@@ -516,9 +516,9 @@ useHead({
               <div class="flex justify-between items-center py-2">
                 <div class="flex items-center gap-2">
                   <span class="w-2 h-2 rounded-full bg-blue-400" />
-                  <span class="text-sm text-surface-600">PIT</span>
+                  <span class="text-sm text-surface-400">PIT</span>
                 </div>
-                <span class="text-sm font-semibold text-rose-600 tabular-nums">
+                <span class="text-sm font-semibold text-rose-600 dark:text-rose-400 tabular-nums">
                   -{{ formatPLN(result.pitMonthly) }} PLN
                 </span>
               </div>
@@ -526,34 +526,34 @@ useHead({
               <div v-if="monthlyCosts > 0" class="flex justify-between items-center py-2">
                 <div class="flex items-center gap-2">
                   <span class="w-2 h-2 rounded-full bg-purple-400" />
-                  <span class="text-sm text-surface-600">Koszty</span>
+                  <span class="text-sm text-surface-400">Koszty</span>
                 </div>
-                <span class="text-sm font-semibold text-rose-600 tabular-nums">
+                <span class="text-sm font-semibold text-rose-600 dark:text-rose-400 tabular-nums">
                   -{{ formatPLN(monthlyCosts) }} PLN
                 </span>
               </div>
 
-              <div class="h-px bg-surface-200" />
+              <div class="h-px bg-surface-700" />
 
               <div class="flex justify-between items-center py-2">
-                <span class="text-sm font-semibold text-surface-900">Na reke</span>
-                <span class="text-xl font-bold text-emerald-600 tabular-nums">
+                <span class="text-sm font-semibold text-surface-100">Na reke</span>
+                <span class="text-xl font-bold text-emerald-600 dark:text-emerald-400 tabular-nums">
                   {{ formatPLN(result.netMonthly) }} PLN
                 </span>
               </div>
 
               <div v-if="includeVat" class="flex justify-between items-center py-2">
-                <span class="text-sm text-surface-400">Faktura brutto (z VAT)</span>
-                <span class="text-sm font-semibold text-surface-500 tabular-nums">
+                <span class="text-sm text-surface-500">Faktura brutto (z VAT)</span>
+                <span class="text-sm font-semibold text-surface-400 tabular-nums">
                   {{ formatPLN(result.invoiceGrossMonthly) }} PLN
                 </span>
               </div>
             </div>
 
             <!-- Tax Details - collapsible -->
-            <div class="mt-4 pt-4 border-t border-surface-100">
+            <div class="mt-4 pt-4 border-t border-surface-700">
               <button
-                class="w-full flex items-center justify-between text-sm font-medium text-surface-600 hover:text-surface-800 transition-colors"
+                class="w-full flex items-center justify-between text-sm font-medium text-surface-400 hover:text-surface-200 transition-colors"
                 @click="showTaxDetails = !showTaxDetails"
               >
                 <span>Szczegoly podatku</span>
@@ -572,7 +572,7 @@ useHead({
                 <div class="overflow-x-auto">
                   <table class="w-full">
                     <thead>
-                      <tr class="text-left text-xs text-surface-400 uppercase tracking-wider">
+                      <tr class="text-left text-xs text-surface-500 uppercase tracking-wider">
                         <th class="pb-3 font-medium">Podatek</th>
                         <th class="pb-3 font-medium text-right">Podstawa</th>
                         <th class="pb-3 font-medium text-right">Stawka</th>
@@ -583,14 +583,14 @@ useHead({
                       <tr
                         v-for="(tax, i) in result.taxBreakdowns"
                         :key="i"
-                        class="border-t border-surface-100"
+                        class="border-t border-surface-700"
                       >
-                        <td class="py-3 font-medium text-surface-700">{{ tax.name }}</td>
-                        <td class="py-3 text-right tabular-nums text-surface-500">
+                        <td class="py-3 font-medium text-surface-300">{{ tax.name }}</td>
+                        <td class="py-3 text-right tabular-nums text-surface-400">
                           {{ formatPLN(tax.base) }} PLN
                         </td>
-                        <td class="py-3 text-right tabular-nums text-surface-500">{{ tax.rate }}</td>
-                        <td class="py-3 text-right tabular-nums font-semibold text-surface-900">
+                        <td class="py-3 text-right tabular-nums text-surface-400">{{ tax.rate }}</td>
+                        <td class="py-3 text-right tabular-nums font-semibold text-surface-100">
                           {{ formatPLN(tax.amount) }} PLN
                         </td>
                       </tr>
@@ -601,9 +601,9 @@ useHead({
             </div>
 
             <!-- ZUS Details - collapsible -->
-            <div class="mt-4 pt-4 border-t border-surface-100">
+            <div class="mt-4 pt-4 border-t border-surface-700">
               <button
-                class="w-full flex items-center justify-between text-sm font-medium text-surface-600 hover:text-surface-800 transition-colors"
+                class="w-full flex items-center justify-between text-sm font-medium text-surface-400 hover:text-surface-200 transition-colors"
                 @click="showZusDetails = !showZusDetails"
               >
                 <span>Szczegoly ZUS (miesiecznie)</span>
@@ -620,47 +620,47 @@ useHead({
 
               <div v-if="showZusDetails" class="mt-3">
                 <div class="grid grid-cols-2 gap-3">
-                  <div class="bg-surface-50 rounded-xl p-3">
-                    <p class="text-xs text-surface-400 mb-0.5">Emerytalna</p>
-                    <p class="text-sm font-semibold text-surface-900 tabular-nums">
+                  <div class="bg-surface-700/50 rounded-xl p-3">
+                    <p class="text-xs text-surface-500 mb-0.5">Emerytalna</p>
+                    <p class="text-sm font-semibold text-surface-100 tabular-nums">
                       {{ formatPLN(result.zusBreakdown.retirement) }} PLN
                     </p>
                   </div>
-                  <div class="bg-surface-50 rounded-xl p-3">
-                    <p class="text-xs text-surface-400 mb-0.5">Rentowa</p>
-                    <p class="text-sm font-semibold text-surface-900 tabular-nums">
+                  <div class="bg-surface-700/50 rounded-xl p-3">
+                    <p class="text-xs text-surface-500 mb-0.5">Rentowa</p>
+                    <p class="text-sm font-semibold text-surface-100 tabular-nums">
                       {{ formatPLN(result.zusBreakdown.disability) }} PLN
                     </p>
                   </div>
-                  <div class="bg-surface-50 rounded-xl p-3">
-                    <p class="text-xs text-surface-400 mb-0.5">Wypadkowa</p>
-                    <p class="text-sm font-semibold text-surface-900 tabular-nums">
+                  <div class="bg-surface-700/50 rounded-xl p-3">
+                    <p class="text-xs text-surface-500 mb-0.5">Wypadkowa</p>
+                    <p class="text-sm font-semibold text-surface-100 tabular-nums">
                       {{ formatPLN(result.zusBreakdown.accident) }} PLN
                     </p>
                   </div>
-                  <div class="bg-surface-50 rounded-xl p-3">
-                    <p class="text-xs text-surface-400 mb-0.5">Chorobowa</p>
-                    <p class="text-sm font-semibold text-surface-900 tabular-nums">
+                  <div class="bg-surface-700/50 rounded-xl p-3">
+                    <p class="text-xs text-surface-500 mb-0.5">Chorobowa</p>
+                    <p class="text-sm font-semibold text-surface-100 tabular-nums">
                       {{ formatPLN(result.zusBreakdown.sickness) }} PLN
                     </p>
                   </div>
-                  <div class="bg-surface-50 rounded-xl p-3">
-                    <p class="text-xs text-surface-400 mb-0.5">Fundusz Pracy</p>
-                    <p class="text-sm font-semibold text-surface-900 tabular-nums">
+                  <div class="bg-surface-700/50 rounded-xl p-3">
+                    <p class="text-xs text-surface-500 mb-0.5">Fundusz Pracy</p>
+                    <p class="text-sm font-semibold text-surface-100 tabular-nums">
                       {{ formatPLN(result.zusBreakdown.laborFund) }} PLN
                     </p>
                   </div>
-                  <div class="bg-brand-50 rounded-xl p-3 border border-brand-200">
-                    <p class="text-xs text-brand-500 mb-0.5">Zdrowotna</p>
-                    <p class="text-sm font-semibold text-brand-700 tabular-nums">
+                  <div class="bg-brand-50 dark:bg-brand-900/30 rounded-xl p-3 border border-brand-200 dark:border-brand-500/30">
+                    <p class="text-xs text-brand-500 dark:text-brand-400 mb-0.5">Zdrowotna</p>
+                    <p class="text-sm font-semibold text-brand-700 dark:text-brand-300 tabular-nums">
                       {{ formatPLN(result.zusBreakdown.healthInsurance) }} PLN
                     </p>
                   </div>
                 </div>
 
-                <div class="mt-3 flex justify-between items-center pt-3 border-t border-surface-100">
-                  <span class="text-sm font-medium text-surface-600">Razem ZUS</span>
-                  <span class="text-sm font-bold text-surface-900 tabular-nums">
+                <div class="mt-3 flex justify-between items-center pt-3 border-t border-surface-700">
+                  <span class="text-sm font-medium text-surface-400">Razem ZUS</span>
+                  <span class="text-sm font-bold text-surface-100 tabular-nums">
                     {{ formatPLN(result.zusBreakdown.totalWithHealth) }} PLN
                   </span>
                 </div>
@@ -669,7 +669,7 @@ useHead({
           </div>
 
           <!-- Disclaimer - inline, no card -->
-          <p class="text-xs text-surface-400 px-1">
+          <p class="text-xs text-surface-500 px-1">
             Wyniki orientacyjne. Dokladne wyliczenia zaleza od indywidualnej sytuacji.
             Skonsultuj z doradca podatkowym.
           </p>

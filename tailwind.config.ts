@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss'
 
 export default <Config>{
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -20,17 +21,17 @@ export default <Config>{
           900: '#364fc7',
         },
         surface: {
-          0: '#ffffff',
-          50: '#f8f9fc',
-          100: '#f1f3f9',
-          200: '#e4e7f1',
-          300: '#d1d5e4',
-          400: '#a3aac5',
-          500: '#6b7394',
-          600: '#4a5068',
-          700: '#363b50',
-          800: '#252836',
-          900: '#1a1c27',
+          0: 'rgb(var(--s-0) / <alpha-value>)',
+          50: 'rgb(var(--s-50) / <alpha-value>)',
+          100: 'rgb(var(--s-100) / <alpha-value>)',
+          200: 'rgb(var(--s-200) / <alpha-value>)',
+          300: 'rgb(var(--s-300) / <alpha-value>)',
+          400: 'rgb(var(--s-400) / <alpha-value>)',
+          500: 'rgb(var(--s-500) / <alpha-value>)',
+          600: 'rgb(var(--s-600) / <alpha-value>)',
+          700: 'rgb(var(--s-700) / <alpha-value>)',
+          800: 'rgb(var(--s-800) / <alpha-value>)',
+          900: 'rgb(var(--s-900) / <alpha-value>)',
         },
       },
       borderRadius: {
@@ -38,9 +39,9 @@ export default <Config>{
         '2xl': '1.25rem',
       },
       boxShadow: {
-        card: '0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06)',
-        'card-hover': '0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04)',
-        soft: '0 2px 8px rgba(0,0,0,0.06)',
+        card: 'var(--shadow-card)',
+        'card-hover': 'var(--shadow-card-hover)',
+        soft: 'var(--shadow-soft)',
       },
     },
   },
