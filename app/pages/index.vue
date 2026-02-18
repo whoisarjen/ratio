@@ -40,29 +40,45 @@ function loadState(): Partial<SavedState> {
   return {}
 }
 
-const saved = loadState()
-
-// --- State (restored from localStorage if available) ---
-const grossAmount = ref(saved.grossAmount ?? 20000)
-const rateType = ref<RateType>(saved.rateType ?? 'monthly')
-const taxYear = ref<TaxYear>(saved.taxYear ?? '2026')
-const zusType = ref<ZusType>(saved.zusType ?? 'normal')
-const sickInsurance = ref(saved.sickInsurance ?? true)
-const taxationType = ref<TaxationType>(saved.taxationType ?? 'lump_sum')
-const lumpSumRate = ref<LumpSumRate>(saved.lumpSumRate ?? 12)
-const monthlyCosts = ref(saved.monthlyCosts ?? 0)
-const paidVacationDays = ref(saved.paidVacationDays ?? 26)
-const includeVat = ref(saved.includeVat ?? false)
+// --- State (defaults; hydrated from localStorage after mount to avoid SSR mismatch) ---
+const grossAmount = ref(20000)
+const rateType = ref<RateType>('monthly')
+const taxYear = ref<TaxYear>('2026')
+const zusType = ref<ZusType>('normal')
+const sickInsurance = ref(true)
+const taxationType = ref<TaxationType>('lump_sum')
+const lumpSumRate = ref<LumpSumRate>(12)
+const monthlyCosts = ref(0)
+const paidVacationDays = ref(26)
+const includeVat = ref(false)
 const showAdvanced = ref(false)
 const showTaxDetails = ref(false)
 const showZusDetails = ref(false)
 
 // IP BOX
-const ipBoxPercentage = ref(saved.ipBoxPercentage ?? 100)
+const ipBoxPercentage = ref(100)
 
 const constants = computed(() => getConstants(taxYear.value))
 const workingDaysPerYear = computed(() => constants.value.workingDays)
-const yourWorkingDays = ref(saved.yourWorkingDays ?? 225)
+const yourWorkingDays = ref(225)
+
+// Hydrate from localStorage after mount to avoid SSR hydration mismatch
+onMounted(() => {
+  const saved = loadState()
+  if (!Object.keys(saved).length) return
+  grossAmount.value = saved.grossAmount ?? grossAmount.value
+  rateType.value = saved.rateType ?? rateType.value
+  taxYear.value = saved.taxYear ?? taxYear.value
+  zusType.value = saved.zusType ?? zusType.value
+  sickInsurance.value = saved.sickInsurance ?? sickInsurance.value
+  taxationType.value = saved.taxationType ?? taxationType.value
+  lumpSumRate.value = saved.lumpSumRate ?? lumpSumRate.value
+  monthlyCosts.value = saved.monthlyCosts ?? monthlyCosts.value
+  paidVacationDays.value = saved.paidVacationDays ?? paidVacationDays.value
+  includeVat.value = saved.includeVat ?? includeVat.value
+  ipBoxPercentage.value = saved.ipBoxPercentage ?? ipBoxPercentage.value
+  yourWorkingDays.value = saved.yourWorkingDays ?? yourWorkingDays.value
+})
 
 // --- Persist state to localStorage ---
 const stateToSave = computed<SavedState>(() => ({
@@ -462,15 +478,15 @@ useHead({
             <!-- Quick stats -->
             <div class="relative z-10 grid grid-cols-3 gap-3">
               <div class="bg-white/10 rounded-xl p-3">
-                <p class="text-xs text-brand-200 mb-0.5">Godzinowa</p>
+                <p class="text-xs text-brand-200 mb-0.5">Netto / h</p>
                 <p class="text-lg font-bold tabular-nums">{{ formatPLN(result.netHourly) }}</p>
               </div>
               <div class="bg-white/10 rounded-xl p-3">
-                <p class="text-xs text-brand-200 mb-0.5">Dzienna</p>
+                <p class="text-xs text-brand-200 mb-0.5">Netto / dzien</p>
                 <p class="text-lg font-bold tabular-nums">{{ formatPLN(result.netDaily) }}</p>
               </div>
               <div class="bg-white/10 rounded-xl p-3">
-                <p class="text-xs text-brand-200 mb-0.5">Roczna</p>
+                <p class="text-xs text-brand-200 mb-0.5">Netto / rok</p>
                 <p class="text-lg font-bold tabular-nums">{{ formatPLN(result.netAnnual) }}</p>
               </div>
             </div>
