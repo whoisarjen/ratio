@@ -168,6 +168,9 @@ function formatPercent(value: number): string {
 
 useHead({
   title: 'Ratio - Kalkulator B2B Polska',
+  script: [
+    { src: 'https://beamback.whoisarjen.com/widget.js', 'data-api-key': 'ak_nJ3B_pZUDk2gQ9CJyKoCI', defer: true },
+  ],
 })
 </script>
 
